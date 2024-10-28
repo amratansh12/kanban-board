@@ -70,4 +70,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.profile-status-bar {
+  position: absolute;
+  right: 0;
+  top: 70%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid white;
 }

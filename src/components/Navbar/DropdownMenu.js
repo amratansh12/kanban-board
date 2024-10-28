@@ -2,7 +2,7 @@ import "./DropdownMenu.css";
 import { useContext } from "react";
 import { DisplayContext } from "../../contexts/displayContext";
 
-export const groupingOptions = ["status", "priority", "userId"];
+export const groupingOptions = ["status", "priority", "user"];
 export const orderingOptions = ["priority", "title"];
 
 export const DropdownMenu = () => {

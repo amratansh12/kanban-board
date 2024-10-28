@@ -1,13 +1,20 @@
 import "./Card.css";
 
-export const Card = ({ id, title, tags, userId }) => {
+import threeDots from "../../assets/svgs/3 dot menu.svg";
+
+export const Card = ({ id, title, tags, username, available }) => {
   return (
     <div className="card">
       <div className="card-header font-medium">
         <div className="card-heading">
           <p className="card-id">{id}</p>
           <div className="card-profile-image">
-            {userId[0] + userId[userId.length - 1]}
+            {username[0]}
+
+            <div
+              className="profile-status-bar"
+              style={{ backgroundColor: available ? "orange" : "#d3d3d3" }}
+            />
           </div>
         </div>
 
@@ -15,7 +22,9 @@ export const Card = ({ id, title, tags, userId }) => {
       </div>
 
       <div className="card-actions">
-        <div className="card-actions-button font-medium">...</div>
+        <div className="card-actions-button font-medium">
+          <img src={threeDots} width={14} />
+        </div>
         {tags.length > 0 &&
           tags.map((tag, index) => (
             <div key={index} className="card-actions-button font-medium">

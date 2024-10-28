@@ -1,15 +1,16 @@
 import "./Navbar.css";
 import { useState } from "react";
-import { LuSlidersHorizontal } from "react-icons/lu";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+
+import display from "../../assets/svgs/Display.svg";
+import down from "../../assets/svgs/down.svg";
+
 import { DropdownMenu } from "./DropdownMenu";
 
 export const Navbar = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const IconStyle = {
-    height: "14px",
-    width: "14px",
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
   };
 
   return (
@@ -18,13 +19,9 @@ export const Navbar = () => {
         onClick={() => setIsVisible(!isVisible)}
         className="dropdown-toggle"
       >
-        <LuSlidersHorizontal style={IconStyle} />
+        <img src={display} alt="display" width={16} />
         Display
-        {isVisible ? (
-          <FaChevronUp style={IconStyle} />
-        ) : (
-          <FaChevronDown style={IconStyle} />
-        )}
+        <img src={down} alt="down" width={16} />
         {isVisible && <DropdownMenu />}
       </button>
     </nav>

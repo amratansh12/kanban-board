@@ -6,6 +6,7 @@ import { groupData } from "../../utils/groupData";
 
 import { Navbar } from "../Navbar/Navbar";
 import { CardColumns } from "../CardColumns/CardColumns";
+import { populateUserId } from "../../utils/populateUserId";
 
 export const KanbanBoard = () => {
   const [data, setData] = useState([]);
@@ -15,7 +16,13 @@ export const KanbanBoard = () => {
   useEffect(() => {
     const getCards = async () => {
       const response = await getData();
-      setData(response.data.tickets);
+      const populatedData = populateUserId(
+        response.data.tickets,
+        response.data.users
+      );
+      console.log(populatedData);
+      // setData(response.data.tickets);
+      setData(populatedData);
       const result = groupData(data, grouping);
       setGroupedData(result);
     };

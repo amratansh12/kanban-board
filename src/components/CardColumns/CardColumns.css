@@ -1,7 +1,7 @@
 .columns {
   padding: 40px 40px 10px 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   gap: 40px;
 }
 
@@ -15,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .column-title span {
@@ -37,4 +37,22 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+.no-cards {
+  display: flex;
+  align-items: center;
+  color: #727478c5;
+  height: 100%;
+}
+
+.title-profile-image {
+  background-color: #727478;
+  color: white;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
