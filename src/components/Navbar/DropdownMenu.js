@@ -14,7 +14,7 @@ export const DropdownMenu = () => {
   };
 
   return (
-    <div className="dropdown-menu">
+    <div className="dropdown-menu" onClick={(e) => e.stopPropagation()}>
       <div className="dropdown-option">
         <span className="font-bold">Grouping</span>
         <select value={grouping} onChange={(e) => handleGroupingChange(e)}>
