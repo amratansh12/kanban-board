@@ -17,8 +17,8 @@ export const Card = ({ id, title, tags, userId }) => {
       <div className="card-actions">
         <div className="card-actions-button font-medium">...</div>
         {tags.length > 0 &&
-          tags.map((tag) => (
-            <div className="card-actions-button font-medium">
+          tags.map((tag, index) => (
+            <div key={index} className="card-actions-button font-medium">
               <div className="card-action-tag" />
               {tag}
             </div>

@@ -1,32 +1,39 @@
-import { useEffect, useState } from "react";
-import { Card } from "../Card/Card";
+import { useEffect, useState, useContext } from "react";
+
+import { DisplayContext } from "../../contexts/displayContext";
 import { getData } from "../../services/api";
+import { groupData } from "../../utils/groupData";
+
+import { Navbar } from "../Navbar/Navbar";
+import { CardColumns } from "../CardColumns/CardColumns";
 
 export const KanbanBoard = () => {
   const [data, setData] = useState([]);
+  const [groupedData, setGroupedData] = useState([]);
+  const { grouping, ordering } = useContext(DisplayContext);
 
   useEffect(() => {
+    const getCards = async () => {
+      const response = await getData();
+      setData(response.data.tickets);
+      const result = groupData(data, grouping);
+      setGroupedData(result);
+    };
+
     getCards();
   }, []);
 
-  const getCards = async () => {
-    const response = await getData();
-    console.log(response.data);
-    setData(response.data.tickets);
-  };
+  useEffect(() => {
+    localStorage.setItem("grouping", grouping);
+    const result = groupData(data, grouping);
+    setGroupedData(result);
+    localStorage.setItem("ordering", ordering);
+  }, [data, grouping, ordering]);
 
   return (
-    <div>
-      {data.length > 0 &&
-        data.map((card) => (
-          <Card
-            key={card.id}
-            id={card.id}
-            title={card.title}
-            tags={card.tag}
-            userId={card.userId}
-          />
-        ))}
-    </div>
+    <>
+      <Navbar />
+      <CardColumns groupedData={groupedData} />
+    </>
   );
 };
