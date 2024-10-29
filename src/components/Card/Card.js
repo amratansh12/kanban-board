@@ -1,8 +1,11 @@
 import "./Card.css";
 
-import threeDots from "../../assets/svgs/3 dot menu.svg";
+import { priorityIcons } from "../../assets/priorityIcons";
 
-export const Card = ({ id, title, tags, username, available }) => {
+export const Card = ({ id, title, tags, username, available, priority }) => {
+  const priorityNames = ["No priority", "Low", "Medium", "High", "Urgent"];
+  const icon = priorityIcons[priorityNames[priority]];
+
   return (
     <div className="card">
       <div className="card-header font-medium">
@@ -23,7 +26,7 @@ export const Card = ({ id, title, tags, username, available }) => {
 
       <div className="card-actions">
         <div className="card-actions-button font-medium">
-          <img src={threeDots} width={14} alt="Extra" />
+          <img src={icon} width={14} alt="Extra" />
         </div>
         {tags.length > 0 &&
           tags.map((tag, index) => (

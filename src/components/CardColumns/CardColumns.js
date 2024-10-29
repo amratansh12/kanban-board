@@ -27,6 +27,7 @@ export const CardColumns = ({ groupedData }) => {
                     tags={card.tag}
                     username={card.user.name}
                     available={card.user.available}
+                    priority={card.priority}
                   />
                 ))}
             </div>

@@ -2,7 +2,7 @@ export const sortData = (data, ordering) => {
   if (ordering === "priority") {
     for (const key in data) {
       data[key].sort((a, b) => {
-        return a.priority - b.priority;
+        return b.priority - a.priority;
       });
     }
 
