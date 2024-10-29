@@ -23,7 +23,7 @@ export const Card = ({ id, title, tags, username, available }) => {
 
       <div className="card-actions">
         <div className="card-actions-button font-medium">
-          <img src={threeDots} width={14} />
+          <img src={threeDots} width={14} alt="Extra" />
         </div>
         {tags.length > 0 &&
           tags.map((tag, index) => (

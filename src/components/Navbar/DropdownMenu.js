@@ -9,15 +9,11 @@ export const DropdownMenu = () => {
   const { grouping, setGrouping, ordering, setOrdering } =
     useContext(DisplayContext);
 
-  const handleGroupingChange = (e) => {
-    setGrouping(e.target.value);
-  };
-
   return (
     <div className="dropdown-menu" onClick={(e) => e.stopPropagation()}>
       <div className="dropdown-option">
         <span className="font-bold">Grouping</span>
-        <select value={grouping} onChange={(e) => handleGroupingChange(e)}>
+        <select value={grouping} onChange={(e) => setGrouping(e.target.value)}>
           {groupingOptions.map((option) => (
             <option key={option} value={option}>
               {option}

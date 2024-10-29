@@ -28,14 +28,14 @@ export const ColumnTitle = ({ heading, length }) => {
   return (
     <div className="column-heading">
       <div className="column-title">
-        {grouping === "user" ? icon : <img src={icon} width={20} />}
+        {grouping === "user" ? icon : <img src={icon} width={20} alt="Icon" />}
         <h2>{heading}</h2>
         <span>{length}</span>
       </div>
 
       <div className="column-actions">
-        <img src={plus} width={20} />
-        <img src={threeDots} width={20} />
+        <img src={plus} width={20} alt="Add" />
+        <img src={threeDots} width={20} alt="Menu" />
       </div>
     </div>
   );

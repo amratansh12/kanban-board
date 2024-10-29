@@ -9,10 +9,6 @@ import { DropdownMenu } from "./DropdownMenu";
 export const Navbar = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const toggleVisibility = () => {
-    setIsVisible(!isVisible);
-  };
-
   return (
     <nav className="navbar">
       <button
