@@ -5,15 +5,25 @@ import { DisplayContext } from "../../contexts/displayContext";
 export const groupingOptions = ["status", "priority", "user"];
 export const orderingOptions = ["priority", "title"];
 
-export const DropdownMenu = () => {
+export const DropdownMenu = ({ setIsVisible }) => {
   const { grouping, setGrouping, ordering, setOrdering } =
     useContext(DisplayContext);
+
+  const handleGroupingChange = (e) => {
+    setGrouping(e.target.value);
+    setIsVisible(false);
+  };
+
+  const handleOrderingChange = (e) => {
+    setOrdering(e.target.value);
+    setIsVisible(false);
+  };
 
   return (
     <div className="dropdown-menu" onClick={(e) => e.stopPropagation()}>
       <div className="dropdown-option">
         <span className="font-bold">Grouping</span>
-        <select value={grouping} onChange={(e) => setGrouping(e.target.value)}>
+        <select value={grouping} onChange={(e) => handleGroupingChange(e)}>
           {groupingOptions.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -24,7 +34,7 @@ export const DropdownMenu = () => {
 
       <div className="dropdown-option">
         <span className="font-bold">Ordering</span>
-        <select value={ordering} onChange={(e) => setOrdering(e.target.value)}>
+        <select value={ordering} onChange={(e) => handleOrderingChange(e)}>
           {orderingOptions.map((option) => (
             <option key={option} value={option}>
               {option}

@@ -18,7 +18,7 @@ export const Navbar = () => {
         <img src={display} alt="display" width={16} />
         Display
         <img src={down} alt="down" width={16} />
-        {isVisible && <DropdownMenu />}
+        {isVisible && <DropdownMenu setIsVisible={setIsVisible} />}
       </button>
     </nav>
   );
